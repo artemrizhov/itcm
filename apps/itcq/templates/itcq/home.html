@@ -1,0 +1,39 @@
+{% extends "itcq/base.html" %}
+{% load cache cms_tags sekizai_tags itcq_tags %}
+{% block main %}
+      <div id="yui-main">
+        <div class="yui-b">
+          <div class="content-box">
+            {% placeholder welcome %}
+          </div>
+         </div>
+      </div>
+      <div class="yui-b researchareas">
+        <div class="content-box">
+        {% placeholder ResearchAreasHeading %}
+        </div>
+        <table style="width: 800px">
+          <tr>
+            <td valign="top">
+            <div class="content-box" id="firstra">
+            {% placeholder FirstResearchArea %}
+            </div>
+          </td>
+          <td width="33%"  valign="top">
+            <div class="content-box">
+            {% placeholder SecondResearchArea %}
+            </div>
+          </td>
+          <td width="33%" valign="top">
+            <div class="content-box">
+            {% placeholder ThirdResearchArea %}
+            </div>
+          </td>
+          </tr>
+        </table>
+      </div>
+{% endblock main %}
+
+{% block aftercontent %}
+    {% sponsors %}
+{% endblock %}

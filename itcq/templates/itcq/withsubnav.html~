@@ -1,5 +1,0 @@
-{% extends "itcq/base.html" %}
-{% load cache cms_tags %}
-{% block main %}
-{% placeholder main %}
-{% endblock %}

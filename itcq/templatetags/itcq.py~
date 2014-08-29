@@ -1,8 +1,0 @@
-from django import template
-from itcq.models import Sponsor
-
-register = template.Library()
-
-@register.inclusion_tag('itcq/sponsors.html')
-def sponsors():
-    return {"sponsor_list": Sponsor.objects.all()}

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  {% load cache cms_tags menu_tags sekizai_tags itcq_tags %}
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ lang }}" xml:lang="{{ lang }}" >
+  <head>
+    {% page_attribute page_title as page_title %}
+    {% page_attribute title as title %}
+    {% page_attribute meta_description as meta_description %}
+<title>ITCM {% if page_title %}&#8212; {{ page_title }}{% elif title %}&#8212; {{ title }}{% endif %}</title>
+<meta name="description" content="{% if meta_description %}{{ meta_description }}{% endif %}"/>
+<meta name="keywords" content=""/>
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/site.css"/>
+<!--script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.2.6.min.js"></script-->
+<style type="text/css">
+
+</style>
+<style type="text/css">
+h1,h2,img,div,a { behavior: url({{ STATIC_URL }}iepngfix/iepngfix.htc) }
+</style>
+  {% render_block "css" %}
+</head>
+<body class="{% ancestor_slug 0 %} {% ancestor_slug 1 %} {% ancestor_slug 0 %}-{% ancestor_slug 1 %} ">
+{% cms_toolbar %}
+<div id="itcq-doc">
+  <div id="hd">
+    <div id="header">
+    {% block header %}
+    <h1>Ion Trap Cavity QED</h1>
+    <a class="sussex-link" href="http://www.sussex.ac.uk/">University of Sussex</a>
+    <ul id="mainnav">
+      {% show_menu 0 0 0 0 %}
+    </ul>
+    {% endblock header %}
+    </div>
+  </div>
+  <div id="bd">
+    <div id="content">
+      {% block main %}
+      {% endblock main %}
+    </div>
+    {% block aftercontent %}
+    {% endblock %}
+  </div>
+  <div id="ft" class="footer">
+  {% block footer %}
+  <ul id="footernav">
+    <!--<li><a href="/sitemap/"">Sitemap</a> |</li>-->
+    <li><a href="{% page_id_url "links" %}">Links</a> |</li>
+    <li><a href="/disclaimer/">Disclaimer</a> |</li>
+    <li><a href="{% page_id_url "contact" %}">Contact</a></li>
+    </ul>
+    {% endblock footer %}
+  </div>
+</div>
+
+
+{% render_block "js" %}
+</body>
+</html>

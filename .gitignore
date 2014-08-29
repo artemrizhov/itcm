@@ -4,7 +4,9 @@
 *.pyc
 .idea
 local_settings.py
-collected_statics
+collected_static
 test.db
 .ropeproject
 .DS_Store
+media
+*~

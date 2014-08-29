@@ -1,5 +1,0 @@
-<ul class="linklist">
-{% for link in links %}
-<li><a href="{{link.get_link_url}}">{{link.link_text}}</a> {{link.description}}</a></li>
-{% endfor %}
-</ul>
